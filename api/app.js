@@ -9,6 +9,7 @@ var devices = [];
 
 
 app.get("/debug/:pin/:inout/:state",(req,res) => {
+  console.log(req.params)
   var LED = new gpio(Number(req.params.pin),req.params.inout);
   LED.writeSync(Number(req.params.state));
   res.status(200);
